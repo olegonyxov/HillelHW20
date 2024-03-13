@@ -6,7 +6,7 @@ for (let categ in products){
     categoryRow.textContent = categ
 }
 categories.addEventListener("click", (event)=> {
-    sessionStorage.setItem('currentCat', event.target.textContent)
+    sessionStorage.setItem('currentCategory', event.target.textContent)
     currentTag = event.target.tagName;
     if (currentTag=== "H2"){
         createCategory();
@@ -15,10 +15,8 @@ categories.addEventListener("click", (event)=> {
 })
 
 function createCategory(){
-    let stored = sessionStorage.getItem('currentCat')
-    let productsOfCategory = products[stored];
     category.innerHTML="";
-    for (product of productsOfCategory) {
+    for (product of products[sessionStorage.getItem('currentCategory')]) {
         let newRow = document.createElement("p")
         category.appendChild(newRow); 
         newRow.innerText= `Model: ${product.name} || Price: $${product.price}`;
