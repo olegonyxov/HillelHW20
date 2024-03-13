@@ -21,7 +21,7 @@ function parseCategory(){
         let newRaw = document.createElement("p")
         let newButton = document.createElement("button")
         newButton.textContent= "Buy"
-        newRaw.appendChild(newButton);
+        newRaw.appendChild(newButton); // Не работает
         category.appendChild(newRaw);      
         newRaw.innerHTML= `Model: ${product.name} |Price: $${product.price}`;
     }
@@ -32,6 +32,6 @@ category.addEventListener("click", (event)=> {
         currentProduct=event.target.textContent;
         alert("Buyed :"+ currentProduct)
     }
-    
+
 })
 
