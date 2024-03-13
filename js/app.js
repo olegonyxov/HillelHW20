@@ -1,16 +1,18 @@
 let categories = document.querySelector(".categories_div");
 let category = document.querySelector(".product_div");
 let currentCat;
-for (let cat in products){
-    let categoryRow = document.createElement("row");
+for (let categ in products){
+    let categoryRow = document.createElement("h2");
     categories.appendChild(categoryRow);
-    let catText = document.createElement("h2");
-    catText.textContent = cat;
-    categoryRow.appendChild(catText)  ;
+    categoryRow.textContent = categ
 }
 categories.addEventListener("click", (event)=> {
     currentCat=event.target.textContent;
-    createCategory();
+    currentTag = event.target.tagName;
+    if (currentTag=== "H2"){
+        createCategory();
+    }
+    
 })
 
 function createCategory(){
