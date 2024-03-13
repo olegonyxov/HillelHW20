@@ -1,8 +1,8 @@
 let categories = document.querySelector(".categories_div");
 let category = document.querySelector(".product_div");
-let categoryRow = document.createElement("row");
 let currentCat;
 for (let cat in products){
+    let categoryRow = document.createElement("row");
     categories.appendChild(categoryRow);
     let catText = document.createElement("h2");
     catText.textContent = cat;
@@ -19,7 +19,7 @@ function createCategory(){
     for (product of productsOfCategory) {
         let newRow = document.createElement("p")
         category.appendChild(newRow); 
-        newRow.innerText= `Model: ${product.name} | Price: $${product.price}`;
+        newRow.innerText= `Model: ${product.name} || Price: $${product.price}`;
         let newButton = document.createElement("button")
         newButton.textContent= "BUY"
         newRow.appendChild(newButton);
