@@ -2,13 +2,15 @@
     display: flex;
 } 
 .product_div{
+    
     padding-left: 50px;
     display: table;
     width: 500px;
+    justify-content:space-around
 }
 .hidden { 
     visibility: hidden;
 } 
-.raw {
-    display: flow-root;
+.button {
+    display: table;
 }

@@ -17,12 +17,12 @@ function createCategory(){
     let productsOfCategory = products[currentCat];
     category.innerHTML="";
     for (product of productsOfCategory) {
-        let newRaw = document.createElement("p")
-        category.appendChild(newRaw); 
-        newRaw.innerHTML= `Model: ${product.name} | Price: $${product.price}`;
+        let newRow = document.createElement("p")
+        category.appendChild(newRow); 
+        newRow.innerText= `Model: ${product.name} | Price: $${product.price}`;
         let newButton = document.createElement("button")
         newButton.textContent= "BUY"
-        newRaw.appendChild(newButton);
+        newRow.appendChild(newButton);
         
     }
 
