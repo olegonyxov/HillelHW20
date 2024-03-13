@@ -29,6 +29,7 @@ function createCategory(){
 }
 category.addEventListener("click", (event)=> {
     if (event.target.tagName=== "BUTTON"){
+        event.target.textContent = ""
         let parentTargetText = event.target.parentNode.textContent;
         alert("Bought :"+ parentTargetText)
     }
