@@ -32,6 +32,6 @@ category.addEventListener("click", (event)=> {
         let parentTargetText = event.target.parentNode.textContent;
         alert("Bought :"+ parentTargetText)
     }
-
+    category.innerHTML="";
 })
 
