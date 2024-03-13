@@ -1,13 +1,12 @@
 let categories = document.querySelector(".categories_div");
 let category = document.querySelector(".product_div");
-let currentCat;
 for (let categ in products){
     let categoryRow = document.createElement("h2");
     categories.appendChild(categoryRow);
     categoryRow.textContent = categ
 }
 categories.addEventListener("click", (event)=> {
-    currentCat=event.target.textContent;
+    sessionStorage.setItem('currentCat', event.target.textContent)
     currentTag = event.target.tagName;
     if (currentTag=== "H2"){
         createCategory();
@@ -16,7 +15,8 @@ categories.addEventListener("click", (event)=> {
 })
 
 function createCategory(){
-    let productsOfCategory = products[currentCat];
+    let stored = sessionStorage.getItem('currentCat')
+    let productsOfCategory = products[stored];
     category.innerHTML="";
     for (product of productsOfCategory) {
         let newRow = document.createElement("p")
