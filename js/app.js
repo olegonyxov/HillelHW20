@@ -19,7 +19,7 @@ function createCategory(){
     for (product of products[sessionStorage.getItem('currentCategory')]) {
         let newRow = document.createElement("p")
         category.appendChild(newRow); 
-        newRow.innerText= `Model: ${product.name} || Price: $${product.price}`;
+        newRow.innerText= `Model :${product.name} || Price:$${product.price} `;
         let newButton = document.createElement("button")
         newButton.textContent= "BUY"
         newRow.appendChild(newButton);
@@ -31,7 +31,7 @@ category.addEventListener("click", (event)=> {
     if (event.target.tagName=== "BUTTON"){
         event.target.textContent = ""
         let parentTargetText = event.target.parentNode.textContent;
-        alert("Bought :"+ parentTargetText)
+        alert("Bought : "+ parentTargetText)
     }
     category.innerHTML="";
 })
