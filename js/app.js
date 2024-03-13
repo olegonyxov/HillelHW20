@@ -19,18 +19,20 @@ function parseCategory(){
     category.innerHTML="";
     for (product of productsOfCategory) {
         let newRaw = document.createElement("p")
+        category.appendChild(newRaw); 
+        newRaw.innerHTML= `Model: ${product.name} | Price: $${product.price}`;
         let newButton = document.createElement("button")
-        newButton.textContent= "Buy"
+        newButton.textContent= "BUY"
         newRaw.appendChild(newButton); // Не работает
-        category.appendChild(newRaw);      
-        newRaw.innerHTML= `Model: ${product.name} |Price: $${product.price}`;
+        
     }
 
 }
 category.addEventListener("click", (event)=> {
-    if (event.target.tagName=== "P"){
-        currentProduct=event.target.textContent;
-        alert("Buyed :"+ currentProduct)
+    if (event.target.tagName=== "BUTTON"){
+        // currentProduct=event.target.textContent;
+        let parentTargetText = event.target.parentNode.textContent;
+        alert("Bought :"+ parentTargetText)
     }
 
 })
