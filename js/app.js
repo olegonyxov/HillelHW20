@@ -10,22 +10,18 @@ categories.addEventListener("click", (event)=> {
     currentTag = event.target.tagName;
     if (currentTag=== "H2"){
         createCategory();
-    }
-    
+    }   
 })
-
 function createCategory(){
     category.innerHTML="";
     for (product of products[sessionStorage.getItem('currentCategory')]) {
-        let newRow = document.createElement("p")
+        let newRow = document.createElement("h4")
         category.appendChild(newRow); 
         newRow.innerText= `Model :${product.name} || Price:$${product.price} `;
         let newButton = document.createElement("button")
         newButton.textContent= "BUY"
         newRow.appendChild(newButton);
-        
     }
-
 }
 category.addEventListener("click", (event)=> {
     if (event.target.tagName=== "BUTTON"){
