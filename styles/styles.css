@@ -1,10 +1,14 @@
 .mainDiv{
     display: flex;
-}
+} 
 .product_div{
     padding-left: 50px;
-    display: flow-root;
+    display: table;
+    width: 500px;
 }
 .hidden { 
     visibility: hidden;
+} 
+.raw {
+    display: flow-root;
 }
