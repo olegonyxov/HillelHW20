@@ -2,7 +2,6 @@ let categories = document.querySelector(".categories_div");
 let category = document.querySelector(".product_div");
 let categoryRow = document.createElement("row");
 let currentCat;
-let currentProduct;
 for (let cat in products){
     categories.appendChild(categoryRow);
     let catText = document.createElement("h2");
@@ -11,10 +10,10 @@ for (let cat in products){
 }
 categories.addEventListener("click", (event)=> {
     currentCat=event.target.textContent;
-    parseCategory();
+    createCategory();
 })
 
-function parseCategory(){
+function createCategory(){
     let productsOfCategory = products[currentCat];
     category.innerHTML="";
     for (product of productsOfCategory) {
@@ -23,14 +22,14 @@ function parseCategory(){
         newRaw.innerHTML= `Model: ${product.name} | Price: $${product.price}`;
         let newButton = document.createElement("button")
         newButton.textContent= "BUY"
-        newRaw.appendChild(newButton); // Не работает
+        newRaw.appendChild(newButton);
         
     }
 
 }
 category.addEventListener("click", (event)=> {
     if (event.target.tagName=== "BUTTON"){
-        // currentProduct=event.target.textContent;
+
         let parentTargetText = event.target.parentNode.textContent;
         alert("Bought :"+ parentTargetText)
     }
