@@ -12,11 +12,37 @@
 
         </div>
         <div class = "product_div">
-
         </div>
+        <div class="hidden buyForm">
+            <form name="userForm">
+              <p>
+                <input type="text" name="name" placeholder="Full Name" />
+              </p>
+              <select name="userCity" id="userCitySelect">
+                <option value = "1">Kiyv</option>
+                <option value = "2">Odesa</option>
+              </select>
+              <p>
+                <input type="number" min="1" name="department" placeholder="department" />
+              </p>
+              <select name="payWay" id="payWaySelect">
+                <option value = "1">Pay</option>
+                <option value = "2">Not to pay</option>
+              </select>
+              <p>
+                <input type="number" min="1" name="count" placeholder="Count" />
+              </p>
+              <p>
+                <input type="text" name="comments" placeholder="Your comments" />
+              </p>
+              <p>
+                <input type="button" value="Save" class="save_btn" name="save_btn" />
+              </p>
+            </form>
         
     </div>
     <script src="./JS/data.js"></script>
+    <script src="./js/formFunctions.js"></script>
     <script src="./JS/app.js"></script>
 </body>
 </html>

@@ -1,5 +1,6 @@
 let categories = document.querySelector(".categories_div");
 let category = document.querySelector(".product_div");
+let userData;
 for (let categ in products){
     let categoryRow = document.createElement("h2");
     categories.appendChild(categoryRow);
@@ -23,12 +24,40 @@ function createCategory(){
         newRow.appendChild(newButton);
     }
 }
-category.addEventListener("click", (event)=> {
-    if (event.target.tagName=== "BUTTON"){
-        event.target.textContent = ""
-        let parentTargetText = event.target.parentNode.textContent;
-        alert("Bought : "+ parentTargetText)
+function clickToBuy(){
+    let parentTargetText
+    category.addEventListener("click", (event)=> {
+        if (event.target.tagName=== "BUTTON"){
+            event.target.textContent = ""
+            parentTargetText = event.target.parentNode.textContent;
+            createBuyForm()
+        }
+        category.innerHTML="";
+    })
+    return parentTargetText
+    
+}
+
+function createBuyForm(){
+    const parent = document.querySelector(".buyForm");
+    parent.classList.remove("hidden")
+    saveButtonClick()
+
+}
+
+function saveButtonClick(){
+    let saveBtn = document.querySelector(".save_btn");
+    saveBtn.addEventListener('click',event => {
+        userData = collectDataToBuy()
+        checkUserData()
+    })
+}
+function checkUserData(){
+    if (userData.name === "" || !userData.userCity || !userData.department || !userData.payWay || !userData.count){
+        alert("Please fill the form")
     }
-    category.innerHTML="";
-})
+}
+clickToBuy()
+
+
 
