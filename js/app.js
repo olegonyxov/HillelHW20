@@ -50,6 +50,7 @@ function saveButtonClick(){
     saveBtn.addEventListener('click',event => {
         userData = collectDataToBuy()
         checkUserData()
+        alert(`Name : ${userData.name} , City : ${userData.userCity} , Department :${userData.department} , PayWay : ${userData.payWay} , Count :${userData.count} , Comments :${userData.comments}`)
     })
 }
 function checkUserData(){
