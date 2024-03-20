@@ -89,7 +89,7 @@ function createMyOdersBtn(){
         let parsedOrder = JSON.parse(localStorage.getItem('orders'))
         console.log(JSON.parse(localStorage.getItem('orders'))) 
         for (let elem in parsedOrder){
-            orderRaw.textContent= elem
+            orderRaw.textContent= parsedOrder[elem]
             ordersDiv.appendChild(orderRaw) 
 
         }
