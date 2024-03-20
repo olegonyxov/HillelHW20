@@ -1,6 +1,6 @@
 let categories = document.querySelector(".categories_div");
 let category = document.querySelector(".product_div");
-let ordersDiv = document.querySelector("orders_div")
+let ordersDiv = document.querySelector(".orders_div")
 let userData;
 for (let categ in products){
     let categoryRow = document.createElement("h2");
@@ -87,9 +87,10 @@ function createMyOdersBtn(){
         ordersDiv.classList.remove("hidden")
         orderRaw = document.createElement('raw')
         let parsedOrder = JSON.parse(localStorage.getItem('orders'))
-        for (elem in parsedOrder){
+        console.log(JSON.parse(localStorage.getItem('orders'))) 
+        for (let elem in parsedOrder){
             orderRaw.textContent= elem
-            ordersDiv.addEventListener(orderRaw) 
+            ordersDiv.appendChild(orderRaw) 
 
         }
         
