@@ -82,7 +82,7 @@ function createMyOdersBtn(){
     myOrdersBtn.textContent= "My orders";
     categories.appendChild(myOrdersBtn);
     myOrdersBtn.addEventListener('click',event => {
-        parsedOrder = JSON.parse(localStorage.getItem('orders'))
+        let parsedOrder = JSON.parse(localStorage.getItem('orders'))
         console.log(parsedOrder)
     })    
 }
