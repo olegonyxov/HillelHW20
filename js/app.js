@@ -58,7 +58,7 @@ function saveButtonClick(){
         let getLocalOrder= localStorage.getItem('orders')
         let newID = 1
         order = 'order'+ newID
-        let data ={order:`order : ${newID}, id : ${newID} , name : ${userData.name} , City : ${userData.userCity} , Department :${userData.department} , PayWay : ${userData.payWay} , Count :${userData.count} , Comments :${userData.comments}`}
+        let data ={order:` id : ${newID} , name : ${userData.name} , City : ${userData.userCity} , Department :${userData.department} , PayWay : ${userData.payWay} , Count :${userData.count} , Comments :${userData.comments}`}
         if (!getLocalOrder){
             localStorage.setItem('orders', JSON.stringify(data))
         } else if (getLocalOrder){
@@ -66,10 +66,9 @@ function saveButtonClick(){
             let parsedOrder = JSON.parse(localStorage.getItem('orders'))
             newID++
             newMark = 'order'+ newID
-            let data =`order : ${newID}, id : ${newID} , name : ${userData.name} , City : ${userData.userCity} , Department :${userData.department} , PayWay : ${userData.payWay} , Count :${userData.count} , Comments :${userData.comments}`
+            let data =` id : ${newID} , name : ${userData.name} , City : ${userData.userCity} , Department :${userData.department} , PayWay : ${userData.payWay} , Count :${userData.count} , Comments :${userData.comments}`
             parsedOrder[newMark]=data
-            localStorage.setItem('orders', JSON.stringify(parsedOrder))
-               
+            localStorage.setItem('orders', JSON.stringify(parsedOrder))      
         }       
     })
 }
