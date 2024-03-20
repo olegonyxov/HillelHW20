@@ -11,8 +11,12 @@ categories.addEventListener("click", (event)=> {
     currentTag = event.target.tagName;
     if (currentTag=== "H2"){
         createCategory();
-    }   
-})
+    } else if (currentTag=== "BUTTON"){
+        console.log('button clicked');  
+}})
+
+
+
 function createCategory(){
     category.innerHTML="";
     for (product of products[sessionStorage.getItem('currentCategory')]) {
@@ -50,7 +54,21 @@ function saveButtonClick(){
     saveBtn.addEventListener('click',event => {
         userData = collectDataToBuy()
         checkUserData()
-        alert(`Name : ${userData.name} , City : ${userData.userCity} , Department :${userData.department} , PayWay : ${userData.payWay} , Count :${userData.count} , Comments :${userData.comments}`)
+        let getLocalOrder= localStorage.getItem('orders')
+        let newID = 1
+        let data =`order : ${newID}, id : ${newID} , name : ${userData.name} , City : ${userData.userCity} , Department :${userData.department} , PayWay : ${userData.payWay} , Count :${userData.count} , Comments :${userData.comments}`
+        if (!getLocalOrder){
+            localStorage.setItem('orders', JSON.stringify(data))
+        } else if (getLocalOrder){
+            console.log("MyOrders clicked")
+            let getLocalOrder= localStorage.getItem('orders')
+            parsedOrder= JSON.parse(getLocalOrder)
+            newID++
+            newMark = 'id'+ newID
+            parsedOrder[newMark]=data
+            localStorage.setItem('orders', JSON.stringify(parsedOrder))
+            return      
+        }       
     })
 }
 function checkUserData(){
@@ -58,7 +76,19 @@ function checkUserData(){
         alert("Please fill the form")
     }
 }
-clickToBuy()
 
+function createMyOdersBtn(){
+    myOrdersBtn= document.createElement('button');
+    myOrdersBtn.textContent= "My orders";
+    categories.appendChild(myOrdersBtn);
+    myOrdersBtn.addEventListener('click',event => {
+        parsedOrder = JSON.parse(localStorage.getItem('orders'))
+        console.log(parsedOrder)
+    })    
+}
+
+
+clickToBuy()
+createMyOdersBtn()
 
 
