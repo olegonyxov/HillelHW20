@@ -1,5 +1,6 @@
 let categories = document.querySelector(".categories_div");
 let category = document.querySelector(".product_div");
+let ordersDiv = document.querySelector("orders_div")
 let userData;
 for (let categ in products){
     let categoryRow = document.createElement("h2");
@@ -56,18 +57,19 @@ function saveButtonClick(){
         checkUserData()
         let getLocalOrder= localStorage.getItem('orders')
         let newID = 1
-        let data =`order : ${newID}, id : ${newID} , name : ${userData.name} , City : ${userData.userCity} , Department :${userData.department} , PayWay : ${userData.payWay} , Count :${userData.count} , Comments :${userData.comments}`
+        order = 'order'+ newID
+        let data ={order:`order : ${newID}, id : ${newID} , name : ${userData.name} , City : ${userData.userCity} , Department :${userData.department} , PayWay : ${userData.payWay} , Count :${userData.count} , Comments :${userData.comments}`}
         if (!getLocalOrder){
             localStorage.setItem('orders', JSON.stringify(data))
         } else if (getLocalOrder){
-            console.log("MyOrders clicked")
-            let getLocalOrder= localStorage.getItem('orders')
-            parsedOrder= JSON.parse(getLocalOrder)
+            console.log("Save clicked")
+            let parsedOrder = JSON.parse(localStorage.getItem('orders'))
             newID++
-            newMark = 'id'+ newID
+            newMark = 'order'+ newID
+            let data =`order : ${newID}, id : ${newID} , name : ${userData.name} , City : ${userData.userCity} , Department :${userData.department} , PayWay : ${userData.payWay} , Count :${userData.count} , Comments :${userData.comments}`
             parsedOrder[newMark]=data
             localStorage.setItem('orders', JSON.stringify(parsedOrder))
-            return      
+               
         }       
     })
 }
@@ -82,8 +84,15 @@ function createMyOdersBtn(){
     myOrdersBtn.textContent= "My orders";
     categories.appendChild(myOrdersBtn);
     myOrdersBtn.addEventListener('click',event => {
+        ordersDiv.classList.remove("hidden")
+        orderRaw = document.createElement('raw')
         let parsedOrder = JSON.parse(localStorage.getItem('orders'))
-        console.log(parsedOrder)
+        for (elem in parsedOrder){
+            orderRaw.textContent= elem
+            ordersDiv.addEventListener(orderRaw) 
+
+        }
+        
     })    
 }
 
