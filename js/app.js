@@ -79,8 +79,10 @@ function checkUserData(){
 }
 
 function createMyOdersBtn(){
-    myOrdersBtn= document.createElement('button');
+    myOrdersBtn = document.createElement('button');
     myOrdersBtn.textContent= "My orders";
+    delOrderBtn = document.createElement('button');
+    delOrderBtn.textContent= "Delete order";
     categories.appendChild(myOrdersBtn);
     myOrdersBtn.addEventListener('click',event => {
         ordersDiv.classList.remove("hidden")
@@ -89,15 +91,26 @@ function createMyOdersBtn(){
         console.log(JSON.parse(localStorage.getItem('orders'))) 
         for (let elem in parsedOrder){
             orderRaw.textContent= parsedOrder[elem]
-            ordersDiv.appendChild(orderRaw) 
+            ordersDiv.appendChild(orderRaw)
+            orderRaw.appendChild(delOrderBtn) 
 
         }
-        
+    deleteOrder()    
     })    
 }
 
+function deleteOrder(){
+    ordersDiv.addEventListener('click',event =>{
+        if (event.target.tagName=== "BUTTON"){
+            rawToDelete = event.target.closest("raw").textContent
+            splitRaw = rawToDelete.split(",")
+            console.log(splitRaw[0])
+        }
+    })
+}
 
 clickToBuy()
 createMyOdersBtn()
+
 
 
