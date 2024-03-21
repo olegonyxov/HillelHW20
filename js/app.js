@@ -102,9 +102,10 @@ function createMyOdersBtn(){
 function deleteOrder(){
     ordersDiv.addEventListener('click',event =>{
         if (event.target.tagName=== "BUTTON"){
-            rawToDelete = event.target.closest("raw").textContent
-            splitRaw = rawToDelete.split(",")
-            console.log(splitRaw[0])
+            // rawToDelete = event.target.closest("raw").textContent
+            // splitRaw = rawToDelete.split(",")
+            // console.log(splitRaw[0])
+            event.target.closest("raw").innerHTML="" //Lpl
         }
     })
 }
